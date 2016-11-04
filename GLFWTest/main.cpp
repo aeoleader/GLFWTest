@@ -70,10 +70,10 @@ int main()
     glViewport(0, 0, screenWidth, screenHeight);
     
     // Setup some OpenGL options
-    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_DEPTH_TEST);
     
     // Setup and compile our shaders
-    Shader ourShader("/Users/jxkj/Desktop/PlayGround/GLFWTest/GLFWTest/VertexShader.vert", "/Users/jxkj/Desktop/PlayGround/GLFWTest/GLFWTest/FragmentShader.frag");
+    Shader ourShader("VertexShader.vert", "FragmentShader.frag");
     
     // Set up our vertex data (and buffer(s)) and attribute pointers
     GLfloat vertices[] = {
@@ -165,7 +165,8 @@ int main()
     // Load, create texture and generate mipmaps
     int width, height;
     //unsigned char* image;
-    unsigned char* image = SOIL_load_image("/Users/jxkj/Desktop/PlayGround/GLFWTest/Block", &width, &height, 0, SOIL_LOAD_RGB);
+    unsigned char* image;
+    //image = SOIL_load_image("/Users/jxkj/Desktop/PlayGround/GLFWTest/Block.png", &width, &height, 0, SOIL_LOAD_RGB);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
     glGenerateMipmap(GL_TEXTURE_2D);
     //SOIL_free_image_data(image);
@@ -180,7 +181,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // Load, create texture and generate mipmaps
-    image = SOIL_load_image("/Users/jxkj/Desktop/PlayGround/GLFWTest/Face", &width, &height, 0, SOIL_LOAD_RGB);
+    //image = SOIL_load_image("/Users/jxkj/Desktop/PlayGround/GLFWTest/Face.jpg", &width, &height, 0, SOIL_LOAD_RGB);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
     glGenerateMipmap(GL_TEXTURE_2D);
     //SOIL_free_image_data(image);
